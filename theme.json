@@ -1,0 +1,18 @@
+{
+  "name": "zhang-dark",
+  "author": "UserZYF",
+  "url": "https://github.com/chenshinshi/zhang-dark",
+  "version": "0.78",
+    "displayName": {
+    "default": "zhang-dark"
+  },
+  "description": {
+    "default": "zhang-light配套夜间主题。"
+  },
+  "readme": {
+    "default": "README.md"
+  },
+  "modes": [
+    "dark"
+  ]
+}
