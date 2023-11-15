@@ -284,10 +284,10 @@ mark {
 /* 设置引用块格式 */
 .protyle-wysiwyg [data-node-id] span[data-type='block-ref'] {
     color: inherit;
-    padding: 0.1em 0.2em;
-    padding-bottom: 0.05em !important;
+    padding-inline:0.2em;
    /* border-bottom: 1px solid var(--b3-theme-primary);*/
     margin: 2px;
+   opacity:1;
 }
 
 /* 为引用块后面增加引用图标 */
@@ -649,37 +649,44 @@ mark {
 }
 
 /* ————————————————————减小前面符号·的大小———————————————————— */
-.list[data-node-id][data-type="NodeList"] .protyle-action>svg {
+/*.list[data-node-id][data-type="NodeList"] .protyle-action>svg {
     width: 11px;
-}
+}*/
 
 /* -------------------------列表折叠 END------------------------ */
 /* ----------------------------------列表 END--------------------------------------- */
 /* ---------------------—---------------------复选框（待办事项）------------------------------------------------ */
 /* ————————————————————————————给默认的待办事项前的图标和悬浮背景颜色设置为无—————————————————————————————— */
-.protyle-wysiwyg [data-node-id].li>.protyle-action--task svg {
+/*.protyle-wysiwyg [data-node-id].li>.protyle-action--task svg {
     opacity: 0;
 }
 
 .protyle-wysiwyg [data-node-id].li>.protyle-action--task:hover:after {
     background-color: transparent !important;
     opacity: 0 !important;
+}*/
+
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action--task::after {
+    border-radius: 0px;
 }
 
+
+.protyle-wysiwyg [data-node-id].li>.protyle-action--task:hover:after {
+    border-radius: 0px;
+}
 /* ————————————————————————————未完成事项的背景颜色———————————————————————————————————————— */
-.protyle-wysiwyg .protyle-action--task,
+/*.protyle-wysiwyg .protyle-action--task,
 .b3-typography .protyle-task {
     content: url(src/dui.svg);
     width: 1.2em;
     height: 1.2em;
     top: 0.4em !important;
-}
-
+}*/
 /* ————————————————————————————————————————复选框选中———————————————————————————————— */
-.protyle-task--done>.protyle-action--task,
+/*.protyle-task--done>.protyle-action--task,
 .b3-typography .protyle-task--done {
     content: url(src/dui-c.svg);
-}
+}*/
 
 /* —————————————————————完成的待办事项删除线样式和颜色（包括字体样式）——————————————————————— */
 .li.protyle-task--done .p {
@@ -694,29 +701,29 @@ mark {
 }
 
 /* 无序列表转表格中的待办事项符号位置调整 */
-.list[custom-f="bg"]>div.protyle-action.protyle-action--task {
+/*.list[custom-f="bg"]>div.protyle-action.protyle-action--task {
     position: relative;
     top: 1em !important;
-}
+}*/
 
-.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action {
+/*.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action {
     top: 50% !important;
-}
+}*/
 
 /* 未完成的待办事项折叠样式 */
 /* 折叠待办事项前面的图标 */
-div[fold="1"] .protyle-action.protyle-action--task {
+/*div[fold="1"] .protyle-action.protyle-action--task {
     content: url("src/task-fold.svg");
     width: 1.2em;
     height: 1.2em;
     top: 0.4em !important;
-}
+}*/
 
 /* 折叠待办事项完成时的图标 */
-.protyle-task--done[fold="1"]>.protyle-action--task,
+/*.protyle-task--done[fold="1"]>.protyle-action--task,
 .b3-typography[fold="1"] .protyle-task--done {
     content: url(src/dui-c.svg) !important;
-}
+}*/
 
 /* ---------------------—---------------------复选框（待办事项）END------------------------------------------------ */
 /* -------------------------------------------------代码块样式--------------------------------------------------- */
@@ -3203,7 +3210,7 @@ span[data-type~=file-annotation-ref]::after{
     display: block !important;
     padding-top: 0px !important;
     padding-right: 0px !important;
-    padding-left: 0px !important;
+    /*padding-left: 0px !important;*/
 }
 
 #searchList [data-type="search-item"]>.b3-list-item__graphic,
@@ -3250,8 +3257,8 @@ span[data-type~=file-annotation-ref]::after{
 .dock#dockBottom{background-color:transparent;margin-top:-42px;border:none}
 .dock#dockBottom .dock__item {background-color:var(--b3-theme-surface);border:var(--b3-border-normal)}
 .layout-tab-container.fn__flex-1 .card__main .block__icons{margin-top:-5px;margin-bottom:-10px}
-.card__block--hidemark span[data-type~="mark"]{color:transparent !important}
-.card__block--hidemark span[data-type~="mark"]:hover{background-color:transparent !important;color:var(--b3-theme-on-background) !important}
+/*.card__block--hidemark span[data-type~="mark"]{color:transparent !important}
+.card__block--hidemark span[data-type~="mark"]:hover{background-color:transparent !important;color:var(--b3-theme-on-background) !important}*/
 li.item.item--pin:not(.item--focus):before {
     content: "";
     content: url("src/pin.svg");
@@ -3315,3 +3322,36 @@ li.item.item--pin.item--focus:before {
 .layout__resize--lr:after,.layout__resize:after{background-color:#cfcece4d;}
 .status{border-top:var(--b3-border-normal)}
 .toolbar{border-bottom:var(--b3-border-normal)}
+[data-type*="text"][style*="font-color10"],.protyle-font .color__square[style*="font-color10"],.protyle-wysiwyg [data-node-id][style*="font-color10"]{border-bottom: 3px dashed;color:var(--b3-theme-on-background) !important}
+[data-type*="text"][style*="font-color11"],.protyle-font .color__square[style*="font-color11"],.protyle-wysiwyg [data-node-id][style*="font-color11"]{border-bottom: 2px solid var(--b3-theme-primary);color:var(--b3-theme-on-background) !important}
+[data-type*="text"][style*="font-color12"],.protyle-wysiwyg [data-node-id][style*="font-color12"] {
+    transition: all 300ms;
+    border-bottom: 1px solid var(--b3-theme-on-background);
+    color:transparent !important;
+}
+.protyle-font .color__square[style*="font-color12"]{    border-bottom: 1px solid var(--b3-theme-on-background);
+    color:transparent !important;
+}
+[data-type*="text"][style*="font-color12"]:hover,.protyle-wysiwyg [data-node-id][style*="font-color12"]:hover {
+    color: var(--b3-theme-on-background) !important;
+    transition: all 300ms;}
+.protyle-font .color__square[style*="font-color12"]:hover{    color: var(--b3-theme-on-background) !important;
+}
+[data-type*="text"][style*="font-color9"],.protyle-wysiwyg [data-node-id][style*="font-color9"],.protyle-font .color__square[style*="font-color9"]{text-decoration: underline wavy var(--b3-theme-primary-lighter);
+    text-decoration-skip-ink: none;color:var(--b3-theme-on-background) !important}
+.protyle-wysiwyg [data-node-id] {
+    border-radius: var(--b3-border-radius-noraml);
+}
+
+
+
+/*.backlinkMList.fn__flex-1 .protyle-content,.backlinkList.fn__flex-1 .protyle-content{padding-top:0px}*/
+.backlinkMList.fn__flex-1 .protyle-breadcrumb__bar>span:last-child,.backlinkList.fn__flex-1 .protyle-breadcrumb__bar>span:last-child{
+    opacity: 0;
+}
+.backlinkMList.fn__flex-1 .protyle-breadcrumb__bar>span:last-child:hover,.backlinkList.fn__flex-1 .protyle-breadcrumb__bar>span:last-child:hover{
+    opacity: 1;
+}
+#searchList .b3-list-item:has(.b3-list-item__toggle--hl){margin:0px}
+#searchList .b3-list-item:has(.b3-list-item__toggle--hl) .b3-list-item__text.ariaLabel{color:var(--b3-theme-on-background)!important;}
+
